@@ -13,7 +13,7 @@ import AboutUs from "./pages/AboutUs.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter >
+    <BrowserRouter basename="/">
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/achievements" element={<Achievements />} />
