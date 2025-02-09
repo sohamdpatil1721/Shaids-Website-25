@@ -1,122 +1,159 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import achievements from "../data/data.js";
+import Footer from "../components/Common/Footer";
 import Navbar from "../components/Common/Navbar";
-import useEmblaCarousel from "embla-carousel-react";
-import AchievementBox from "../components/Achivements/AchievementBox";
-import achievements from "../data/data.js"; // Import the data
+function CompetitionCard({ title, description }) {
+  return (
+    <div className="bg-purple-900/40 rounded-3xl p-6 sm:p-8 backdrop-blur-sm transition-transform hover:scale-105">
+      <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
+        {title}
+      </h3>
+      <p className="text-purple-200 text-sm sm:text-base">{description}</p>
+    </div>
+  );
+}
 
-const Achievements = () => {
-  const [emblaRefMobile, emblaApiMobile] = useEmblaCarousel({
-    loop: false,
-    speed: 15,
-    slidesToScroll: 1,
-    dragFree: true,
-  });
+function Carousel() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [autoplay, setAutoplay] = useState(true);
 
-  const [emblaRefDesktop, emblaApiDesktop] = useEmblaCarousel({
-    loop: false,
-    speed: 15,
-    slidesToScroll: 1,
-    align: "start", // Align the slides to the start
-    dragFree: true,
-  });
-
-  const [expandedSlide, setExpandedSlide] = useState(null); // State for tracking clicked slide
+  const slides = Object.values(achievements);
 
   useEffect(() => {
-    if (emblaApiMobile) {
-      emblaApiMobile.reInit();
+    let interval;
+    if (autoplay) {
+      interval = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % (slides.length - 2));
+      }, 5000);
     }
-    if (emblaApiDesktop) {
-      emblaApiDesktop.reInit();
-    }
-  }, [emblaApiMobile, emblaApiDesktop]);
+    return () => clearInterval(interval);
+  }, [autoplay, slides.length]);
 
-  const handleSlideClick = (index) => {
-    setExpandedSlide(expandedSlide === index ? null : index); // Toggle expansion
+  const nextSlide = () => {
+    setCurrentSlide((prev) => Math.min(prev + 1, slides.length - 3));
+    setAutoplay(false);
   };
 
-  const achievementsArray = Object.values(achievements);
+  const prevSlide = () => {
+    setCurrentSlide((prev) => Math.max(prev - 1, 0));
+    setAutoplay(false);
+  };
 
   return (
-    <div className="bg-bgGradient flex flex-col min-h-screen h-full overflow-x-hidden">
-      <Navbar />
-      {/* Header Section */}
-      <div className="p-10 pb-5 mt-20">
-        {/* Mobile Design */}
-        <div className="flex flex-col gap-8 sm:hidden mb-10">
-          <h1 className="text-white text-3xl font-NordBold self-center">
-            Achievements
-          </h1>
-          <img
-            src="src/assets/images/achievements_page.png"
-            alt="Achievements"
-            className="size-36 self-center"
-          />
-          <p className="text-[#A576DF] text-center text-lg font-Outfit font-semibold">
-            Our college celebrates top academic rankings, innovative research,
-            and impactful community service. We’re proud of our students!
-          </p>
+    <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl group bg-bgGradient">
+      <div className="relative">
+        <div
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{
+            transform: `translateX(-${
+              currentSlide * (100 / (window.innerWidth >= 768 ? 3 : 1))
+            }%)`,
+          }}
+        >
+          {slides.map((slide, index) => (
+            <div key={index} className="w-full md:w-1/3 flex-shrink-0 p-2">
+              <div className="relative h-[250px] sm:h-[300px] md:h-[400px] rounded-xl sm:rounded-2xl overflow-hidden group">
+                <img
+                  src={slide.img}
+                  alt={slide.title}
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-purple-900/90 via-purple-900/50 to-transparent opacity-80 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute bottom-0 left-0 p-4 sm:p-6">
+                    <h3 className="text-lg sm:text-2xl font-bold text-white mb-1 sm:mb-2">
+                      {slide.title}
+                    </h3>
+                    <p className="text-purple-200 text-xs sm:text-sm line-clamp-2 sm:line-clamp-none">
+                      {slide.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-        {/* Desktop & Tablet Design */}
-        <div className="sm:flex hidden mb-10 w-full justify-around">
-          <div className="flex flex-col gap-4 justify-center">
-            <h1 className="text-white text-6xl font-NordBold">Achievements</h1>
-            <p className="text-[#A576DF] text-xl leading-relaxed max-w-xl text-left mx-auto font-Outfit flex flex-col">
+      </div>
+
+      {/* Navigation Buttons */}
+      <button
+        onClick={prevSlide}
+        disabled={currentSlide === 0}
+        className={`absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-purple-600/80 hover:bg-purple-700 text-white p-2 sm:p-3 rounded-full transition-all ${
+          currentSlide === 0
+            ? "opacity-50 cursor-not-allowed"
+            : "opacity-0 group-hover:opacity-100"
+        }`}
+      >
+        <ChevronLeft size={20} className="sm:w-6 sm:h-6" />
+      </button>
+      <button
+        onClick={nextSlide}
+        disabled={currentSlide === slides.length - 3}
+        className={`absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-purple-600/80 hover:bg-purple-700 text-white p-2 sm:p-3 rounded-full transition-all ${
+          currentSlide === slides.length - 3
+            ? "opacity-50 cursor-not-allowed"
+            : "opacity-0 group-hover:opacity-100"
+        }`}
+      >
+        <ChevronRight size={20} className="sm:w-6 sm:h-6" />
+      </button>
+
+      {/* Progress Dots */}
+      <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex gap-1.5 sm:gap-2">
+        {Array.from({ length: slides.length - 2 }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => {
+              setCurrentSlide(index);
+              setAutoplay(false);
+            }}
+            className={`w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full transition-all ${
+              currentSlide === index ? "bg-white w-3 sm:w-4" : "bg-white/50"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Achievements() {
+  return (
+    <div className="min-h-screen bg-[#0A051E] text-white">
+      <div className="container mx-auto px-4 py-12 sm:py-20">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+          <div>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-8 font-NordBold">
+              ACHIEVEMENTS
+            </h1>
+            <p className="text-lg sm:text-xl text-purple-400 mb-6 sm:mb-8">
               Our college celebrates top academic rankings, innovative research,
-              and impactful community service.{" "}
-              <span>We’re proud of our students!</span>
+              and impactful community service. We're proud of our students!
             </p>
           </div>
-          <img
-            src="src/assets/images/achievements_page.png"
-            alt="Achievements"
-            className="size-72 object-cover object-center"
-          />
+          
         </div>
-      </div>
 
-      {/* Carousel Section */}
-      <div className="sm:hidden">
-        {/* Mobile Carousel */}
-        <div className="embla" ref={emblaRefMobile}>
-          <div className="embla__container flex gap-4">
-            {achievementsArray.map((achievement, index) => (
-              <div key={index} className="embla__slide w-[85%] sm:w-[90%] mx-auto p-4">
-                <AchievementBox
-                  achievementname={achievement.title}
-                  achievementdesc={achievement.description}
-                  achievementimg={achievement.img}
-                />
-              </div>
-            ))}
-          </div>
+        <div className="mt-12 sm:mt-20 mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">
+            Featured Achievements
+          </h2>
+          <Carousel />
         </div>
-      </div>
 
-      {/* Desktop & Tablet Carousel */}
-      <div className="hidden sm:flex items-center w-full justify-around">
-        <div className="embla flex justify-center" ref={emblaRefDesktop}>
-          <div className="embla__container flex gap-4">
-            {achievementsArray.map((achievement, index) => (
-              <div
-                key={index}
-                className={`embla__slide ${
-                  expandedSlide === index ? "w-[500px]" : "w-[300px]"
-                } cursor-pointer p-4`}
-                onClick={() => handleSlideClick(index)}
-              >
-                <AchievementBox
-                  achievementname={achievement.title}
-                  achievementdesc={achievement.description}
-                  achievementimg={achievement.img}
-                />
-              </div>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mt-16 sm:mt-20">
+          {Object.values(achievements).map((achievement, index) => (
+            <CompetitionCard
+              key={index}
+              title={achievement.title}
+              description={achievement.description}
+            />
+          ))}
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Achievements;

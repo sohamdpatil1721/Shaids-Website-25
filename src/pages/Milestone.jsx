@@ -9,8 +9,8 @@ import img7 from "../assets/images/milestone/img7.jpg";
 import img8 from "../assets/images/milestone/img8.jpg";
 import img9 from "../assets/images/milestone/img9.jpg";
 import img10 from "../assets/images/milestone/img10.jpg";
+import Footer from "../components/Common/Footer";
 import Navbar from "../components/Common/Navbar";
-
 const Milestone = () => {
   return (
     <>

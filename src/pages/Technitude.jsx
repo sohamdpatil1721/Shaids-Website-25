@@ -8,8 +8,8 @@ import image6 from "../assets/images/technitude/img6.jpg";
 import image7 from "../assets/images/technitude/img7.jpg";
 import image8 from "../assets/images/technitude/img8.jpg";
 import image9 from "../assets/images/technitude/img9.jpg";
+import Footer from "../components/Common/Footer";
 import Navbar from "../components/Common/Navbar";
-
 const Technitude = () => {
   return (
     <>

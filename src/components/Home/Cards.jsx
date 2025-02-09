@@ -62,7 +62,7 @@ const Info = [
     delay: 200,
     lottieSrc:
       "https://lottie.host/dccce0ee-94e1-46ca-b5d2-f6a539043191/aznFnjSDOz.lottie",
-    href: "/event",
+    href: "/events",
   },
   {
     title: "Academics",

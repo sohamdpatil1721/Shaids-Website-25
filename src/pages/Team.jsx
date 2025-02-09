@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Lottie from "lottie-react";
 import Footer from "../components/Common/Footer";
+import Navbar from "../components/Common/Navbar";
 import MemberCard from "../components/Teams/MemberCard";
 import teamAnimation from "../assets/animations/team/team-animation.json";
-import Navbar from "../components/Common/Navbar";
+
 import Sai_Patil from "../assets/images/team-members-23-24/sai-patil-president.jpg";
 import Vedant_Dal from "../assets/images/team-members-23-24/vedant-dal-general-secretary.jpg";
 import Ajink_Gupta from "../assets/images/team-members-23-24/ajink-gupta-co-general-secretary.jpg";

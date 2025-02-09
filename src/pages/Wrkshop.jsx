@@ -8,8 +8,8 @@ import img6 from "../assets/images/workshop/raaj.jpg";
 import img7 from "../assets/images/workshop/volunteer3.jpg";
 import img8 from "../assets/images/workshop/frame.jpg";
 import img9 from "../assets/images/workshop/volunteer2.jpg";
+import Footer from "../components/Common/Footer";
 import Navbar from "../components/Common/Navbar";
-
 const Wrkshop = () => {
   return (
     <>

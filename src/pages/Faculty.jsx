@@ -13,8 +13,8 @@ import Swati from "../assets/images/faculty/Swati.jpeg";
 import hod from "../assets/images/faculty/hod.jpg";
 import arti from "../assets/images/faculty/arti.jpg";
 import maam from "../assets/images/faculty/maam.jpg";
+import Footer from "../components/Common/Footer";
 import Navbar from "../components/Common/Navbar";
-
 export default function Faculty() {
   const mentors = [
     { name: "Dr.Sanjay Madhukarrao Patil", image: hod, exp: "Professor & HOD" },
@@ -45,11 +45,7 @@ export default function Faculty() {
       image: irin,
       exp: "Assistant Professor",
     },
-    {
-      name: "Mrs.Monal Nilesh Malge",
-      image: Monal,
-      exp: "Assistant Professor",
-    },
+
     {
       name: "Mrs. Poonam Amit Kamble",
       image: poonam,
@@ -80,7 +76,7 @@ export default function Faculty() {
   return (
     <>
       <Navbar />
-      <div className="bg-bgGradient flex flex-col items-center  justify-center min-h-screen h-full py-10 px-4">
+      <div className="bg-bgGradient flex flex-col items-center  justify-center min-h-screen h-full py-20 px-4 ">
         {/* Heading */}
         <h1 className="text-white text-2xl font-NordBold md:text-3xl font-bold text-center mb-8">
           FACULTY & MENTORS
@@ -110,6 +106,7 @@ export default function Faculty() {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 }

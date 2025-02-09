@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { set, useForm } from "react-hook-form";
-import toast, { Toaster } from "react-hot-toast";
+import { useForm } from "react-hook-form";
+import toast, { Toaster, LoaderIcon } from "react-hot-toast";
 import Lottie from "lottie-react";
 import contact from "../assets/images/contact.json";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import CallOutlinedIcon from "@mui/icons-material/CallOutlined";
+import Footer from "../components/Common/Footer";
 import Navbar from "../components/Common/Navbar";
 import axios from "axios";
+// import { CircularProgress } from "@mui/material"; // Import loading spinner
 
 const ContactUs = () => {
   const {
@@ -17,17 +19,14 @@ const ContactUs = () => {
     formState: { errors },
   } = useForm();
 
-  const [loadinng, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [messageLength, setMessageLength] = useState(0);
   const maxLength = 300;
+
   const onSubmit = async (data) => {
     setLoading(true);
-    // console.log(data);
     try {
-      const email = data.email;
-      const fullName = data.fullName;
-      const phoneNumber = data.phoneNumber;
-      const Message = data.Message;
+      const { email, fullName, phoneNumber, Message } = data;
       await axios.post(
         import.meta.env.VITE_BACKEND_URL || "http://localhost:3000/api/contact",
         { fullName, email, phoneNumber, Message }
@@ -41,22 +40,25 @@ const ContactUs = () => {
       setLoading(false);
     }
   };
+
   return (
     <>
       <Navbar />
-      <div className="bg-bgGradient text-white font-Outfit flex flex-col min-h-screen h-full px-12 xl:flex-row justify-around items-center sm:px-32 py-24 xl:px-32 ">
+      <div className="bg-bgGradient text-white font-Outfit flex flex-col  h-full px-12 xl:flex-row justify-around items-center sm:px-32 py-24 xl:px-32 overflow-hidden">
         <Toaster position="top-right" reverseOrder={false} />
         {/* Top text box */}
         <div className="flex flex-col gap-1 sm:gap-2 md:gap-4 sm:text-left xl:w-1/2">
-          <span className="bg-buttonGradient rounded-2xl px-4 py-1  w-max md:text-xl">
+          {/* <span className="bg-buttonGradient rounded-2xl px-4 py-1  w-max md:text-xl">
             CONTACT US
-          </span>
+          </span> */}
           <h1 className="font-NordMedium text-2xl sm:text-4xl md:text-5xl">
-            let's get in touch.
+            Let's get in touch.
           </h1>
           <span className="flex text-sm text-center flex-col sm:text-xl sm:text-left sm:gap-2 sm:flex-row md:text-2xl">
             Or just reach out manually to{" "}
-            <span className="text-[#9654F4] underline">shaids@gmail.com</span>
+            <span className="text-[#9654F4] underline">
+              shaids_dmce@dmce.ac.in
+            </span>
           </span>
           <Lottie
             animationData={contact}
@@ -64,8 +66,9 @@ const ContactUs = () => {
             loop={true}
           />
         </div>
+
         {/* Form */}
-        <div className="flex flex-col   w-full xl:w-1/3">
+        <div className="flex flex-col w-full xl:w-1/3">
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col gap-5"
@@ -94,7 +97,7 @@ const ContactUs = () => {
             </span>
 
             {/* Email Field */}
-            <span className="flex flex-col gap-2 ">
+            <span className="flex flex-col gap-2">
               Email
               <span
                 className={`custom-input flex p-2 gap-2 md:py-3 ${
@@ -182,10 +185,20 @@ const ContactUs = () => {
               )}
             </span>
 
-            <input
+            {/* Submit Button with Loading Indicator */}
+            <button
               type="submit"
-              className=" bg-buttonGradient w-max px-4 py-1 rounded-lg self-end"
-            />
+              className="bg-buttonGradient w-max px-4 py-2 rounded-lg self-end cursor-pointer flex items-center gap-2"
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <LoaderIcon /> Sending...
+                </>
+              ) : (
+                "Submit"
+              )}
+            </button>
           </form>
         </div>
       </div>
