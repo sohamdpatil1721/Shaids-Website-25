@@ -34,7 +34,7 @@ const Footer = () => {
           {/* Social Icons */}
           <div className="flex space-x-4 mt-3">
             <a
-              href="https://www.instagram.com/dmceairoli.official/"
+              href="https://www.instagram.com/shaidsdmce/"
               className="text-pink-400 hover:text-pink-500 text-xl cursor-pointer"
               target="_blank"
               rel="noopener noreferrer"

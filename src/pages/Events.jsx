@@ -120,7 +120,7 @@ export default function Events() {
                 heading="Technitude"
                 animationData={technitudeAnimation}
                 onClick={handleTechnitudeClick}
-                className="h-[330px] w-[275px] rounded-tr-[138px] mt-[100px]"
+                className="h-[330px] w-[275px] rounded-tr-[138px] mt-[100px] cursor-pointer"
                 sizeClass="h-[250px] w-[250px]"
                 headingPosition="bottom"
               />
@@ -130,7 +130,7 @@ export default function Events() {
                   heading="Milestone"
                   animationData={mile1}
                   onClick={handleMilestoneClick}
-                  className="h-[255px] w-[225px]  rounded-bl-[138px] "
+                  className="h-[255px] w-[225px]  rounded-bl-[138px] cursor-pointer "
                   sizeClass="h-[180px] w-[180px] "
                   headingPosition="top"
                 />
@@ -138,7 +138,7 @@ export default function Events() {
                   heading="Workshop"
                   animationData={wrkshop}
                   onClick={handleWorkshopClick}
-                  className="h-[255px] w-[225px] rounded-tl-[138px]"
+                  className="h-[255px] w-[225px] rounded-tl-[138px] cursor-pointer"
                   sizeClass="h-[180px] w-[180px]"
                   headingPosition="bottom"
                 />

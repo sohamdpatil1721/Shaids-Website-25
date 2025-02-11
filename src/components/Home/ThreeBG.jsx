@@ -30,12 +30,12 @@ const ThreeBG = ({ setLoading }) => {
       />
 
       {/* Optional: Logo in bottom-right corner */}
-      <div className="absolute bottom-0 right-0 bg-black w-40 h-20 z-20 font-NordBold text-white flex items-center justify-center">
-        <img
+      <div className="absolute bg-[#02050f] bottom-0 right-0 b w-40 h-20 z-50 font-NordBold text-white flex items-center justify-center">
+        {/* <img
           src={Shaids_logo}
           alt=""
-          className=" w-auto overflow-auto size-20 self-center"
-        />
+          className=" w-auto overflow-auto size-20 self-center z-50"
+        /> */}
       </div>
     </div>
   );

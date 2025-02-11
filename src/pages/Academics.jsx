@@ -23,7 +23,7 @@ const App = () => {
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#11163E] to-black text-white">
       <Navbar />
-      
+
       {/* Header */}
       <header className="bg-opacity-90 backdrop-blur-sm bg-[#1a1f4d] border-b border-purple-900">
         <div className="container mx-auto px-4 py-4 md:py-6 flex flex-col md:flex-row items-center space-y-3 md:space-y-0 md:space-x-3">
@@ -79,9 +79,9 @@ const App = () => {
                   href={paper.downloadUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 hover:bg-purple-900 rounded-full"
+                  className="p-2 hover:bg-purple-900 rounded-full cursor-pointer"
                 >
-                  <Download className="w-5 h-5 text-purple-400" />
+                  <Download className="w-5 h-5 text-purple-400 cursor-pointer" />
                 </a>
               </div>
             </div>
@@ -92,7 +92,8 @@ const App = () => {
         {filteredPapers.length === 0 && selectedSemester && (
           <div className="text-center py-12">
             <p className="text-gray-400">
-              No question papers found for the selected semester or search query.
+              No question papers found for the selected semester or search
+              query.
             </p>
           </div>
         )}
