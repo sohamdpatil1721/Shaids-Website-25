@@ -262,9 +262,11 @@ const Team = () => {
   const teamMembers = showPreviousLeads ? previousLeads : currentLeads;
 
   return (
+    <>
+    {/* <Navbar/> */}
     <div className="min-h-screen flex flex-col bg-bgGradient ">
       <Navbar />
-      <div className="max-w-[1280px] w-full px-4 mx-auto flex flex-col items-center flex-grow mt-5">
+      <div className="max-w-[1280px] w-full px-4 mx-auto flex flex-col items-center flex-grow mt-10">
         <div className="w-full flex flex-col lg:flex-row items-center justify-between mb-12">
           <div className="lg:w-[50%] text-center lg:text-left py-8">
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-2 font-NordMedium">
@@ -299,6 +301,8 @@ const Team = () => {
       </div>
       <Footer />
     </div>
+    </>
+    
   );
 };
 

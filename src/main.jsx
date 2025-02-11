@@ -10,7 +10,7 @@ import Wrkshop from "./pages/Wrkshop.jsx";
 import Faculty from "./pages/Faculty.jsx";
 import Credits from "./pages/Credits.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
-
+import Academics from "./pages/Academics.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter basename="/">
@@ -26,6 +26,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/faculty" element={<Faculty />} />
         <Route path="/credits" element={<Credits />} />
         <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/academics" element={<Academics />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

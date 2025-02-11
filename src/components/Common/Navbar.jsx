@@ -18,7 +18,7 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <nav className="bg-transparent  py-3 fixed z-50 mb-12">
+    <nav className="bg-transparent  py-3 fixed z-50 ">
       <div className="w-screen mx-auto flex justify-between px-8 items-center">
         {/* Logo */}
         <div className="text-2xl font-bold cursor-pointer text-white ">

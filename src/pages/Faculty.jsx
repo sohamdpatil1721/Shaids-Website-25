@@ -78,7 +78,7 @@ export default function Faculty() {
       <Navbar />
       <div className="bg-bgGradient flex flex-col items-center  justify-center min-h-screen h-full py-20 px-4 ">
         {/* Heading */}
-        <h1 className="text-white text-2xl font-NordBold md:text-3xl font-bold text-center mb-8">
+        <h1 className="text-white text-2xl font-NordBold md:text-3xl font-bold text-center mb-12 ">
           FACULTY & MENTORS
         </h1>
 

@@ -44,7 +44,7 @@ const App = () => {
         <Loader onComplete={() => setLoading(false)} />
       ) : (
         showMain && (
-          <div>
+          <div className=" bg-bgGradient">
             {isMobile ? (
               <>
                 <Navbar />

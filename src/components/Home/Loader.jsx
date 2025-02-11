@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import React from "react";
+import Shaids_logo from "../../assets/images/logo.png";
+import { shouldSkipGeneratingVar } from "@mui/material";
 
 export default function Loader({ onComplete }) {
   const [quoteIndex, setQuoteIndex] = useState(0);
@@ -34,14 +36,14 @@ export default function Loader({ onComplete }) {
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
     >
-      {/* <motion.h1
-        className="text-3xl font-bold mb-4"
-        // initial={{ scale: 0 }}
-        // animate={{ scale: 1 }}
-        // transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        Shaids
-      </motion.h1> */}
+      <motion.img
+        src={Shaids_logo}
+        alt="Shaids Logo"
+        className="w-24 h-24 mb-4"
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+      />
       <motion.p
         key={quoteIndex}
         className="text-lg text-center"

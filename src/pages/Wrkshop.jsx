@@ -16,7 +16,7 @@ const Wrkshop = () => {
       <Navbar />
       <div className="bg-[#0a0b1e] min-h-screen flex flex-col items-center p-6 md:p-10">
         {/* Title */}
-        <h1 className="text-purple-400 text-4xl md:text-6xl text-center md:text-left font-NordBold mb-6">
+        <h1 className="text-purple-400 text-4xl md:text-6xl text-center md:text-left font-NordBold mb-6 mt-10">
           WORKSHOP
         </h1>
 
@@ -45,6 +45,7 @@ const Wrkshop = () => {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

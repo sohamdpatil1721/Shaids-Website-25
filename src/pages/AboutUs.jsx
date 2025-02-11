@@ -1,7 +1,7 @@
 import React from "react";
 import { Bot, Users, Dumbbell, Palette } from "lucide-react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import qr from "../assets/images/qrcode.png";
+import qr from "../assets/images/qrcode.jpg";
 import Footer from "../components/Common/Footer";
 import Navbar from "../components/Common/Navbar";
 function AboutUS() {
@@ -115,7 +115,7 @@ function AboutUS() {
                   <img
                     src={qr}
                     alt="Join SHAIDS QR Code"
-                    className="w-32 h-32"
+                    className="size-24 sm:size-32 "
                   />
                 </div>
               </div>

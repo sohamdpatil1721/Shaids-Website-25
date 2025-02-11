@@ -35,7 +35,7 @@ const Footer = () => {
           <div className="flex space-x-4 mt-3">
             <a
               href="https://www.instagram.com/dmceairoli.official/"
-              className="text-pink-400 hover:text-pink-500 text-xl"
+              className="text-pink-400 hover:text-pink-500 text-xl cursor-pointer"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -43,7 +43,7 @@ const Footer = () => {
             </a>
             <a
               href="https://github.com/SHAIDS-DMCE"
-              className="text-gray-400 hover:text-gray-500 text-xl"
+              className="text-gray-400 hover:text-gray-500 text-xl cursor-pointer"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -51,7 +51,7 @@ const Footer = () => {
             </a>
             <a
               href="https://www.linkedin.com/company/shaids-dmce/"
-              className="text-blue-500 hover:text-blue-600 text-xl"
+              className="text-blue-500 hover:text-blue-600 text-xl cursor-pointer"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -62,8 +62,10 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="py-2 text-center flex-col">
-        <Link to="/credits">Our Developers!</Link>
+      <div className="py-2 text-center flex-col cursor-pointer">
+        <Link to="/credits" className=" cursor-pointer">
+          Our Developers!
+        </Link>
         <p className="text-xs font-Outfit">
           © 2025 DMCE SHAIDS. All rights reserved.
         </p>

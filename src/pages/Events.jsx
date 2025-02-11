@@ -45,7 +45,7 @@ export default function Events() {
       <div className="bg-bgGradient flex flex-col justify-center min-h-screen h-full ">
         <div className="p-10 pb-5">
           {/* for mobile device */}
-          <div className="flex flex-col items-center gap-6 sm:hidden text-center">
+          <div className="flex flex-col items-center gap-6 sm:hidden text-center mt-10">
             <h2 className="text-white text-2xl font-NordBold">
               Welcome to SHAIDS Events Hub!
             </h2>
@@ -90,7 +90,7 @@ export default function Events() {
             </p>
           </div>
           {/* for tablets & desktops */}
-          <div className="sm:flex items-center gap-10 hidden p-10 mb-10 justify-center">
+          <div className="sm:flex items-center gap-10 hidden p-10 mb-10 justify-center mt-10">
             <div className="flex flex-col gap-4">
               <h1 className="text-white text-5xl 2xl:text-5xl font-NordBold justify-right">
                 Welcome to <h1 className="text-[#A576DF]"> SHAIDS Events </h1>{" "}
@@ -147,6 +147,7 @@ export default function Events() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

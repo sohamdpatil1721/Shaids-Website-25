@@ -17,7 +17,7 @@ const Milestone = () => {
       <Navbar />
       <div className="bg-[#0a0b1e] min-h-screen flex flex-col items-center p-6 md:p-10">
         {/* Title */}
-        <h1 className="text-purple-400 text-4xl md:text-6xl font-NordBold mb-6 text-center md:text-left">
+        <h1 className="text-purple-400 text-4xl md:text-6xl font-NordBold mb-6 text-center md:text-left mt-10">
           Milestone
         </h1>
 
@@ -82,6 +82,7 @@ const Milestone = () => {
           />
         </div>
       </div>
+      <Footer />
     </>
   );
 };

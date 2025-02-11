@@ -47,7 +47,7 @@ const ContactUs = () => {
       <div className="bg-bgGradient text-white font-Outfit flex flex-col  h-full px-12 xl:flex-row justify-around items-center sm:px-32 py-24 xl:px-32 overflow-hidden">
         <Toaster position="top-right" reverseOrder={false} />
         {/* Top text box */}
-        <div className="flex flex-col gap-1 sm:gap-2 md:gap-4 sm:text-left xl:w-1/2">
+        <div className="flex flex-col gap-1  sm:text-left xl:w-1/2">
           {/* <span className="bg-buttonGradient rounded-2xl px-4 py-1  w-max md:text-xl">
             CONTACT US
           </span> */}
@@ -68,7 +68,7 @@ const ContactUs = () => {
         </div>
 
         {/* Form */}
-        <div className="flex flex-col w-full xl:w-1/3">
+        <div className="flex flex-col w-full xl:w-1/3 mt-8">
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col gap-5"
@@ -202,6 +202,7 @@ const ContactUs = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

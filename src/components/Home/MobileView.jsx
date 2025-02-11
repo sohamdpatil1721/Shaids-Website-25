@@ -21,7 +21,7 @@ const MobileView = () => {
   useEffect(() => {
     // Check if returning from a card
     const searchParams = new URLSearchParams(location.search);
-    const isReturning = searchParams.get('returning') === 'true';
+    const isReturning = searchParams.get("returning") === "true";
 
     if (isReturning) {
       // Show loop video and grid, hide other elements
@@ -29,7 +29,7 @@ const MobileView = () => {
       setShowGrid(true);
       setShowButton(false);
       setShowDiscoverInVideo(false);
-      
+
       // Start playing the loop video
       if (loopVideoRef.current) {
         loopVideoRef.current.play();
@@ -37,9 +37,9 @@ const MobileView = () => {
 
       // Smooth scroll to grid section after a brief delay
       setTimeout(() => {
-        gridSectionRef.current?.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
+        gridSectionRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
         });
       }, 100); // Small delay to ensure DOM is ready
     }
@@ -68,8 +68,10 @@ const MobileView = () => {
     setShowGrid(true);
     // Add the returning parameter to the current URL
     const searchParams = new URLSearchParams(location.search);
-    searchParams.set('returning', 'true');
-    navigate(`${location.pathname}?${searchParams.toString()}`, { replace: true });
+    searchParams.set("returning", "true");
+    navigate(`${location.pathname}?${searchParams.toString()}`, {
+      replace: true,
+    });
   };
 
   return (
@@ -83,7 +85,9 @@ const MobileView = () => {
           playsInline
           preload="auto"
           onEnded={handleStartVideoEnd}
-          className={`w-full object-cover ${showLoopVideo ? "hidden" : "block"}`}
+          className={`w-full object-cover ${
+            showLoopVideo ? "hidden" : "block"
+          }`}
         />
         <video
           ref={loopVideoRef}
@@ -92,12 +96,14 @@ const MobileView = () => {
           loop
           playsInline
           preload="auto"
-          className={`w-full object-cover ${showLoopVideo ? "block" : "hidden"}`}
+          className={`w-full object-cover ${
+            showLoopVideo ? "block" : "hidden"
+          }`}
         />
       </section>
 
       {/* Discover Section */}
-      <section 
+      <section
         ref={gridSectionRef}
         className="relative w-full min-h-screen flex items-center justify-center bg-black scroll-mt-16 sm:-translate-y-[150px]"
       >
@@ -109,16 +115,20 @@ const MobileView = () => {
             muted
             playsInline
             preload="auto"
-            className={`w-full h-full object-cover transition-opacity duration-500 ease-in-out ${showDiscoverInVideo ? "opacity-0" : `opacity-${discoverVideoOpacity}`}`}
+            className={`w-full h-full object-cover transition-opacity duration-500 ease-in-out ${
+              showDiscoverInVideo
+                ? "opacity-0"
+                : `opacity-${discoverVideoOpacity}`
+            }`}
           />
         )}
 
         {showButton && !showGrid && (
           <button
             onClick={handleDiscoverClick}
-            className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10
-              px-6 py-2 bg-white text-black rounded-full hover:bg-opacity-90
-              transition-opacity duration-500 ease-in-out ${buttonOpacity}`}
+            className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-3/4 z-10
+              px-6 py-2 bg-buttonGradient text-white rounded-lg hover:bg-opacity-90
+              transition-opacity duration-500 ease-in-out ${buttonOpacity} cursor-pointer`}
           >
             CLICK
           </button>
@@ -132,21 +142,23 @@ const MobileView = () => {
             playsInline
             preload="auto"
             onEnded={handleDiscoverVideoEnd}
-            className={`w-full h-full object-cover absolute top-0 left-0 transition-opacity duration-300 ease-in-out ${showDiscoverInVideo ? "opacity-100" : "opacity-0"}`}
+            className={`w-full h-full object-cover absolute top-0 left-0 transition-opacity duration-300 ease-in-out ${
+              showDiscoverInVideo ? "opacity-100" : "opacity-0"
+            }`}
           />
         )}
 
         {/* Grid Section */}
         <div
-          className={`absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ${showGrid ? "opacity-100 z-10" : "opacity-0 z-0"}`}
+          className={`absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ${
+            showGrid ? "opacity-100 z-10" : "opacity-0 z-0"
+          }`}
         >
           {showGrid && <Grid />}
         </div>
       </section>
       {/* Footer */}
-      <div className="sm:-translate-y-[150px]">
-      <Footer />
-      </div>
+      <div className="sm:-translate-y-[150px]"></div>
     </div>
   );
 };
