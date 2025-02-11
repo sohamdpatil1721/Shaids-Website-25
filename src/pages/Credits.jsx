@@ -1,6 +1,6 @@
 import React from "react";
 import aayush from "../assets/images/credits/ayush.jpg";
-import bhargav from "../assets/images/credits/bhargav.png";
+import bhargav from "../assets/images/credits/Bhargav.png";
 import dhanush from "../assets/images/credits/Dhanush.jpg";
 import divesh from "../assets/images/credits/divesh.jpg";
 import nachiket from "../assets/images/credits/nachiket.jpg";
