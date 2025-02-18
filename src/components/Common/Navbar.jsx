@@ -44,7 +44,7 @@ const Navbar = () => {
               Faculty
             </Link>
           </li>
-          <li className="text-purple-400 hover:text-purple-600 cursor-pointer">
+          <li className=" hover:text-purple-400 cursor-pointer">
             <Link to="/contact-us" className=" cursor-pointer">
               Contact
             </Link>
