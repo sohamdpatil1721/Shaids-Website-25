@@ -7,10 +7,11 @@ import { shouldSkipGeneratingVar } from "@mui/material";
 export default function Loader({ onComplete }) {
   const [quoteIndex, setQuoteIndex] = useState(0);
   const quotes = [
-    "Loading your experience...",
-    "Bringing imagination to life...",
-    "Almost there...",
-    "Get ready for something amazing!",
+    "The wait is nearly over. Get ready to witness innovation!",
+    "The moment you've been waiting for—SHAIDS is here!",
+    "The wait is over. The next era of SHAIDS begins now!",
+    "Where data meets destiny—SHAIDS is ready to inspire!",
+    "You’ve seen the hints. You’ve felt the excitement. Now, it’s time!"
   ];
 
   useEffect(() => {
@@ -20,7 +21,7 @@ export default function Loader({ onComplete }) {
 
     const timeout = setTimeout(() => {
       onComplete(); // Tell App to show the main content
-    }, 3500);
+    }, 5000);
 
     return () => {
       clearInterval(interval);
