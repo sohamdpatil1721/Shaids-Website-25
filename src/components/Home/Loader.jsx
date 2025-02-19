@@ -17,11 +17,11 @@ export default function Loader({ onComplete }) {
   useEffect(() => {
     const interval = setInterval(() => {
       setQuoteIndex((prev) => (prev + 1) % quotes.length);
-    }, 1000);
+    }, 2400);
 
     const timeout = setTimeout(() => {
       onComplete(); // Tell App to show the main content
-    }, 5000);
+    }, 12000);
 
     return () => {
       clearInterval(interval);
