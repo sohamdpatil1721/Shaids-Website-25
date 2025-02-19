@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import Shaids_logo from "../../assets/images/logo.png";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation(); // Get current location (pathname)
 
   useEffect(() => {
     if (isOpen) {
@@ -17,45 +19,40 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
+  const getLinkClass = (path) => {
+    return location.pathname === path
+      ? "hover:text-purple-600 text-purple-400 cursor-pointer"
+      : "hover:text-purple-400 cursor-pointer";
+  };
+
   return (
-    <nav className="bg-transparent  py-3 fixed z-50 ">
+    <nav className="bg-transparent py-3 fixed z-50">
       <div className="w-screen mx-auto flex justify-between px-8 items-center">
         {/* Logo */}
-        <div className="text-2xl font-bold cursor-pointer text-white ">
+        <div className="text-2xl font-bold cursor-pointer text-white">
           <Link to="/" className=" cursor-pointer font-NordBold">
-            <img src={Shaids_logo} alt="logo" className=" w-auto size-10  " />
+            <img src={Shaids_logo} alt="logo" className="w-auto size-10" />
           </Link>
         </div>
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex space-x-6 text-white cursor-pointer">
-          <li className="hover:text-purple-400 cursor-pointer">
-            <Link to="/" className=" cursor-pointer">
-              Home
-            </Link>
+          <li className={getLinkClass("/")}>
+            <Link to="/">Home</Link>
           </li>
-          <li className="hover:text-purple-400 cursor-pointer">
-            <Link to="/about-us" className=" cursor-pointer">
-              About us
-            </Link>
+          <li className={getLinkClass("/about-us")}>
+            <Link to="/about-us">About us</Link>
           </li>
-          <li className="hover:text-purple-400 cursor-pointer">
-            <Link to="/faculty" className=" cursor-pointer">
-              Faculty
-            </Link>
+          <li className={getLinkClass("/faculty")}>
+            <Link to="/faculty">Faculty</Link>
           </li>
-          <li className=" hover:text-purple-400 cursor-pointer">
-            <Link to="/contact-us" className=" cursor-pointer">
-              Contact
-            </Link>
+          <li className={getLinkClass("/contact-us")}>
+            <Link to="/contact-us">Contact</Link>
           </li>
         </ul>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setIsOpen(true)}
-        >
+        <button className="md:hidden text-white" onClick={() => setIsOpen(true)}>
           <MenuIcon fontSize="large" />
         </button>
       </div>
@@ -76,22 +73,22 @@ const Navbar = () => {
 
         {/* Mobile Menu Links */}
         <ul className="text-white text-2xl space-y-6 text-center">
-          <li className="hover:text-purple-400 transition duration-300">
+          <li className={getLinkClass("/")}>
             <Link to="/" onClick={() => setIsOpen(false)}>
               Home
             </Link>
           </li>
-          <li className="hover:text-purple-400 transition duration-300">
+          <li className={getLinkClass("/about-us")}>
             <Link to="/about-us" onClick={() => setIsOpen(false)}>
               About us
             </Link>
           </li>
-          <li className="hover:text-purple-400 transition duration-300">
+          <li className={getLinkClass("/faculty")}>
             <Link to="/faculty" onClick={() => setIsOpen(false)}>
               Faculty
             </Link>
           </li>
-          <li className="hover:text-purple-400 transition duration-300">
+          <li className={getLinkClass("/contact-us")}>
             <Link to="/contact-us" onClick={() => setIsOpen(false)}>
               Contact
             </Link>
