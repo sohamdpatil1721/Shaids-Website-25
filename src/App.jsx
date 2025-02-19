@@ -7,6 +7,7 @@ import ThreeBG from "./components/Home/ThreeBG";
 import Loader from "./components/Home/Loader";
 import MobileView from "./components/Home/MobileView";
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { Analytics } from "@vercel/analytics/react"
 
 const App = () => {
   const [loading, setLoading] = useState(() => {
@@ -42,7 +43,7 @@ const App = () => {
   return (
     <>
           <SpeedInsights />
-
+          <Analytics/>
       {loading ? (
         <Loader onComplete={() => setLoading(false)} />
       ) : (
