@@ -9,14 +9,16 @@ import image7 from "../assets/images/technitude/img7.jpg";
 import image8 from "../assets/images/technitude/img8.jpg";
 import image9 from "../assets/images/technitude/img9.jpg";
 import Navbar from "../components/Common/Navbar";
+import Footer from "../components/Common/Footer";
+
 
 const Technitude = () => {
   return (
-    <div className="bg-[#0a0b1e] min-h-screen flex flex-col items-center px-4 sm:px-6 md:px-10 w-full overflow-hidden">
+    <div className="bg-bgGradient min-h-screen flex flex-col items-center   w-full overflow-hidden">
       <Navbar />
 
       {/* Title */}
-      <h1 className="text-purple-400 text-3xl sm:text-4xl md:text-6xl mt-4 text-center font-NordBold mb-6">
+      <h1 className="text-purple-400 text-3xl sm:text-4xl md:text-6xl mt-16 text-center font-NordBold mb-6">
         Technitude
       </h1>
 
@@ -43,7 +45,7 @@ const Technitude = () => {
         ].map((img, index) => (
           <div
             key={index}
-            className="w-full h-40 sm:h-48 md:h-56 flex justify-center"
+            className="w-full h-40 sm:h-48 md:h-56 flex justify-center mb-16"
           >
             <img
               src={img}
@@ -53,6 +55,7 @@ const Technitude = () => {
           </div>
         ))}
       </div>
+      <Footer/>
     </div>
   );
 };
