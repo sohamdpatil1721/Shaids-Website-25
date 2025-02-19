@@ -10,12 +10,15 @@ import img8 from "../assets/images/milestone/img8.jpg";
 import img9 from "../assets/images/milestone/img9.jpg";
 import img10 from "../assets/images/milestone/img10.jpg";
 import Navbar from "../components/Common/Navbar";
+import Footer from "../components/Common/Footer";
 
 const Milestone = () => {
   return (
-    <div className="bg-[#0a0b1e] min-h-screen flex flex-col items-center p-6 md:p-10">
-      <Navbar />
-      <h1 className="text-purple-400 text-4xl md:text-6xl font-NordBold mb-6 text-center md:text-left">
+    <>
+    <Navbar />
+    <div className="bg-bgGradient min-h-screen flex flex-col items-center px-6 md:p-10">
+      
+      <h1 className="text-purple-400 text-4xl md:text-6xl font-NordBold mb-6 text-center md:text-left mt-16">
         Milestone
       </h1>
 
@@ -31,7 +34,7 @@ const Milestone = () => {
       </p>
 
       {/* Grid Layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-6 max-w-6xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-6 max-w-6xl mb-16">
         <img
           src={img1}
           alt="Milestone Event 1"
@@ -79,7 +82,11 @@ const Milestone = () => {
           className="w-full h-48 object-cover rounded-lg shadow-lg"
         />
       </div>
+      
     </div>
+    <Footer/>
+    </>
+    
   );
 };
 
