@@ -6,6 +6,7 @@ import Navbar from "./components/Common/Navbar";
 import ThreeBG from "./components/Home/ThreeBG";
 import Loader from "./components/Home/Loader";
 import MobileView from "./components/Home/MobileView";
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const App = () => {
   const [loading, setLoading] = useState(() => {
@@ -40,6 +41,8 @@ const App = () => {
 
   return (
     <>
+          <SpeedInsights />
+
       {loading ? (
         <Loader onComplete={() => setLoading(false)} />
       ) : (
