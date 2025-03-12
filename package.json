@@ -22,6 +22,7 @@
     "@ffmpeg/ffmpeg": "^0.12.15",
     "@ffmpeg/util": "^0.12.2",
     "@lottiefiles/dotlottie-react": "^0.12.3",
+    "@lottiefiles/react-lottie-player": "^3.6.0",
     "@mui/icons-material": "^6.4.1",
     "@mui/material": "^6.4.1",
     "@splinetool/loader": "^1.9.59",

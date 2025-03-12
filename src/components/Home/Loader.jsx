@@ -11,17 +11,17 @@ export default function Loader({ onComplete }) {
     "The moment you've been waiting for—SHAIDS is here!",
     "The wait is over. The next era of SHAIDS begins now!",
     "Where data meets destiny—SHAIDS is ready to inspire!",
-    "You’ve seen the hints. You’ve felt the excitement. Now, it’s time!"
+    "You’ve seen the hints. You’ve felt the excitement. Now, it’s time!",
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setQuoteIndex((prev) => (prev + 1) % quotes.length);
-    }, 2000);
+    }, 1000);
 
     const timeout = setTimeout(() => {
       onComplete(); // Tell App to show the main content
-    }, 10000);
+    }, 5000);
 
     return () => {
       clearInterval(interval);

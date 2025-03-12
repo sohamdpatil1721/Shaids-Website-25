@@ -6,8 +6,9 @@ import Navbar from "./components/Common/Navbar";
 import ThreeBG from "./components/Home/ThreeBG";
 import Loader from "./components/Home/Loader";
 import MobileView from "./components/Home/MobileView";
-import { SpeedInsights } from '@vercel/speed-insights/react';
-import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
+import HackHiveBanner from "./components/Home/HackHiveBanner";
 
 const App = () => {
   const [loading, setLoading] = useState(() => {
@@ -15,7 +16,6 @@ const App = () => {
   });
 
   const [showMain, setShowMain] = useState(false);
-  
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1025);
 
   useEffect(() => {
@@ -42,24 +42,25 @@ const App = () => {
 
   return (
     <>
-          <SpeedInsights />
-          <Analytics/>
+      <SpeedInsights />
+      <Analytics />
       {loading ? (
         <Loader onComplete={() => setLoading(false)} />
       ) : (
         showMain && (
-          <div className=" bg-bgGradient">
-            {isMobile ? (
-              <>
-                <Navbar />
-                <MobileView />
-              </>
-            ) : (
-              <>
-                <Navbar />
+          <div className="bg-bgGradient min-h-screen">
+            <Navbar className="relative z-50" />
+            <div className="relative z-40 text-white pt-16"></div>
+            <div className="relative z-0">
+              {isMobile ? (
+                <>
+                  <HackHiveBanner />
+                  <MobileView />
+                </>
+              ) : (
                 <ThreeBG setLoading={setLoading} />
-              </>
-            )}
+              )}
+            </div>
           </div>
         )
       )}
