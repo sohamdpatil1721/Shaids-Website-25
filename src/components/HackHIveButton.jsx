@@ -21,7 +21,7 @@ const HackHiveButton = () => {
       {/* Button with Navigation */}
       <button
         onClick={() => navigate("/hackhive")}
-        className="relative size-full rounded-full flex justify-center items-center px-5 py-2 cursor-pointer gap-3 bg-gradient-to-t from-purple-500 to-indigo-600 transition-all duration-500 ease-in-out transform overflow-hidden border-2 border-transparent"
+        className="relative size-full rounded-full flex justify-center items-center px-6 py-2 cursor-pointer gap-3 bg-gradient-to-t from-purple-500 to-indigo-600 transition-all duration-500 ease-in-out transform overflow-hidden border-2 border-transparent"
       >
         <span className="font-semibold text-white text-base">HackHive</span>
         <div className="absolute inset-0 rounded-full border-2 border-purple-400 opacity-50 animate-border-move shadow-[0_0_8px_rgba(159,122,234,0.8)]"></div>
