@@ -19,7 +19,7 @@ const HackHiveBanner = () => {
       ))}
 
       <p
-        className="relative text-lg font-semibold underline active:text-purple-200"
+        className="relative text-lg font-semibold  active:text-purple-200"
         onClick={() => navigate("/hackhive")}
       >
         Register for HackHive

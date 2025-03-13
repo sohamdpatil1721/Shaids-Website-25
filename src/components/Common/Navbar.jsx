@@ -38,7 +38,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="absolute left-1/2 transform -translate-x-1/2">
+        <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:block">
           <HackHiveButton />
         </div>
 

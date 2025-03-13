@@ -44,10 +44,9 @@ export default function Hackathon() {
   };
 
   const { days, hours, minutes, seconds } = getTimeComponents(timeLeft);
-
+  const navigate = useNavigate();
   return (
     <>
-    
       <div className="bg-[#0D112F] text-white p-6">
         {/* Title */}
         <div className="flex items-center justify-center text-center text-6xl font-NordBold text-[#A576DF] mb-10 md:mb-[40px]">
@@ -428,10 +427,21 @@ export default function Hackathon() {
         {/* Register & Problem Statements Buttons */}
 
         <div className="flex justify-center space-x-6 mt-10">
-          <button className="glow-button px-6 py-3 bg-[#8133F1] text-white font-bold text-lg rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+          <button
+            className="glow-button px-6 py-3 bg-[#8133F1] text-white font-bold text-lg rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+            onClick={() =>
+              window.open(
+                "https://docs.google.com/forms/d/e/1FAIpQLScByBl9N08I_UrAEfamENd813U3DfPlJ4MV8IJPN5_04t8m7w/viewform?pli=1",
+                "_blank"
+              )
+            }
+          >
             Register Now
           </button>
-          <button className="glow-button px-6 py-3 bg-[#8133F1] text-white font-bold text-lg rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+          <button
+            className="glow-button px-6 py-3 bg-[#8133F1] text-white font-bold text-lg rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+            onClick={() => navigate("/problem-statements")}
+          >
             Problem Statements
           </button>
         </div>
