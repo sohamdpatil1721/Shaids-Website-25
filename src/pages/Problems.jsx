@@ -6,7 +6,11 @@ import ps2 from "../assets/images/ps/ps2.png";
 import ps3 from "../assets/images/ps/ps3.png";
 import ps4 from "../assets/images/ps/ps4.png";
 import ps5 from "../assets/images/ps/ps5.png";
-
+import ps1Pdf from "../assets/Ps_pdfs/HackHive1.pdf";
+import ps2Pdf from "../assets/Ps_pdfs/HackHive2.pdf";
+import ps3Pdf from "../assets/Ps_pdfs/HackHive3.pdf";
+import ps4Pdf from "../assets/Ps_pdfs/HackHive4.pdf";
+import ps5Pdf from "../assets/Ps_pdfs/HackHive5.pdf";
 export default function Problems() {
   const problems = [
     {
@@ -15,7 +19,7 @@ export default function Problems() {
       description:
         "Design a software platform that connects farmers directly to consumers, eliminating intermediaries. Include a feature to predict crop prices based on historical data, weather conditions, and market trends to help farmers make informed selling decisions.",
       image: ps1,
-      pdf: "/HackHive1.pdf",
+      pdf: ps1Pdf,
     },
     {
       id: 2,
@@ -23,7 +27,7 @@ export default function Problems() {
       description:
         "Build a web application that helps researchers quickly extract insights from academic papers by leveraging AI to generate summaries and visual representations of key findings.",
       image: ps2,
-      pdf: "/HackHive2.pdf",
+      pdf: ps2Pdf,
     },
     {
       id: 3,
@@ -31,7 +35,7 @@ export default function Problems() {
       description:
         "Design a smart study planner that creates personalized schedules based on a student’s learning style, preferred study hours, and exam schedules.",
       image: ps3,
-      pdf: "/HackHive3.pdf",
+      pdf: ps3Pdf,
     },
     {
       id: 4,
@@ -39,7 +43,7 @@ export default function Problems() {
       description:
         "Develop a platform that streamlines hackathon management by managing registrations, team creation, project submissions, leaderboards, and judging.",
       image: ps4,
-      pdf: "/HackHive4.pdf",
+      pdf: ps4Pdf,
     },
     {
       id: 5,
@@ -47,7 +51,7 @@ export default function Problems() {
       description:
         "Create a website that helps developers find people with matching coding interests and expertise.",
       image: ps5,
-      pdf: "/HackHive5.pdf",
+      pdf: ps5Pdf,
     },
   ];
 
