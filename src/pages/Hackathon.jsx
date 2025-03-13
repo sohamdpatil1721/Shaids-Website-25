@@ -49,12 +49,12 @@ export default function Hackathon() {
     <>
       <div className="bg-[#0D112F] text-white p-6">
         {/* Title */}
-        <div className="flex items-center justify-center text-center text-6xl font-NordBold text-[#A576DF] mb-10 md:mb-[40px]">
+        <div className="flex items-center justify-center text-center text-4xl md:text-6xl font-NordBold text-[#A576DF] mb-10 md:mb-[40px]">
           <h2>HACKHIVE '25</h2>
         </div>
 
         {/* Slogan */}
-        <div className="flex items-center justify-center text-center font-NordBold text-[36px] leading-[100%] mb-10 md:mb-[40px]">
+        <div className="flex items-center justify-center text-center font-NordBold text-2xl md:text-3xl leading-[100%] mb-10 md:mb-[40px]">
           <h6>code . build . win</h6>
         </div>
 
@@ -141,7 +141,7 @@ export default function Hackathon() {
 
         {/* Additional Content */}
         <div className="flex items-center justify-center text-center px-6 md:px-12 mb-10">
-          <p className="text-[40px] font-Outfit font-bold text-white max-w-4xl leading-tight">
+          <p className="text-xl md:text-2xl font-Outfit font-bold text-white max-w-4xl leading-tight">
             Get ready for an electrifying coding sprint where creativity meets
             problem-solving—push boundaries, break barriers, and build the
             future!
