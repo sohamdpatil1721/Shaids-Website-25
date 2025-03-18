@@ -12,7 +12,9 @@ import people from "../assets/people.json";
 import Clock from "../assets/Clock.json";
 import Exampad from "../assets/Exampad.json";
 import Winner from "../assets/Winner.json";
-
+import brainheatersImg from "../assets/Sponsers/brainheaters.jpg";
+import brainheatersPDF from "../assets/Sponsers/brainHeatersBrochure.pdf";
+import collegepondImg from "../assets/Sponsers/collegepond.jpg";
 export default function Hackathon() {
   const targetDate = new Date("2025-03-27T00:00:00").getTime(); // Set target date (YYYY-MM-DDTHH:MM:SS)
   const [timeLeft, setTimeLeft] = useState(targetDate - new Date().getTime()); // Initial time left
@@ -42,7 +44,20 @@ export default function Hackathon() {
 
     return { days, hours, minutes, seconds };
   };
-
+  const sponser = {
+    1: {
+      name: "Brainheaters",
+      logo: brainheatersImg,
+      brochure: "",
+      website: "https://www.brainheaters.in/",
+    },
+    2: {
+      name: "Collegepond",
+      logo: collegepondImg,
+      brochure: brainheatersPDF,
+      website: "https://collegepond.com/",
+    },
+  };
   const { days, hours, minutes, seconds } = getTimeComponents(timeLeft);
   const navigate = useNavigate();
   return (
@@ -186,7 +201,7 @@ export default function Hackathon() {
 
           {/* Sponsors Boxes */}
           <div className="flex flex-wrap justify-center gap-6">
-            {[1, 2, 3].map((num) => (
+            {Object.entries(sponser).map(([num, item]) => (
               <div
                 key={num}
                 className="sponsor-box w-[360px] h-[260px] bg-[#1E223E] flex flex-col items-center justify-center rounded-xl shadow-lg p-6 relative overflow-hidden"
@@ -197,22 +212,41 @@ export default function Hackathon() {
                 </div>
 
                 {/* Logo Placeholder */}
-                <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center mb-4">
+                <div
+                  className={
+                    item.name == "Brainheaters"
+                      ? "size-24 bg-black rounded-full flex items-center justify-center overflow-hidden mb-4"
+                      : "size-24 bg-white rounded-full flex items-center justify-center overflow-hidden mb-4"
+                  }
+                >
                   <img
-                    src={`sponsor${num}-logo.png`}
-                    alt={`Sponsor ${num}`}
-                    className="w-20"
+                    src={item.logo}
+                    alt={`Sponsor ${item.name}`}
+                    className={
+                      item.name == "Brainheaters"
+                        ? `w-full h-full object-contain`
+                        : `w-full h-full object-cover`
+                    }
                   />
                 </div>
+
                 {/* Sponsor Name */}
-                <p className="text-white text-2xl font-bold">Sponsor {num}</p>
+                <a
+                  className="text-white text-2xl font-bold hover:underline cursor-pointer"
+                  href={item.website}
+                  target="_blank"
+                >
+                  {item.name}
+                </a>
+
                 {/* Brochure Button */}
                 <a
-                  href={`/brochure${num}.pdf`}
-                  download
-                  className="mt-4 bg-[#A576DF] text-white px-4 py-2 rounded-lg hover:bg-[#8b5fbf]"
+                  href={item.brochure}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 bg-[#A576DF] text-white px-4 py-2 rounded-lg hover:bg-[#8b5fbf] cursor-pointer"
                 >
-                  Download Brochure
+                  View Brochure
                 </a>
               </div>
             ))}
@@ -428,7 +462,7 @@ export default function Hackathon() {
 
         <div className="flex justify-center space-x-6 mt-10">
           <button
-            className="glow-button px-6 py-3 bg-[#8133F1] text-white font-bold text-lg rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+            className="glow-button px-6 py-3 bg-[#8133F1] cursor-pointer text-white font-bold text-lg rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
             onClick={() =>
               window.open(
                 "https://docs.google.com/forms/d/e/1FAIpQLScByBl9N08I_UrAEfamENd813U3DfPlJ4MV8IJPN5_04t8m7w/viewform?pli=1",
@@ -439,7 +473,7 @@ export default function Hackathon() {
             Register Now
           </button>
           <button
-            className="glow-button px-6 py-3 bg-[#8133F1] text-white font-bold text-lg rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+            className="glow-button px-6 py-3 bg-[#8133F1] cursor-pointer text-white font-bold text-lg rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
             onClick={() => navigate("/problem-statements")}
           >
             Problem Statements

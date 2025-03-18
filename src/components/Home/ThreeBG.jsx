@@ -3,17 +3,17 @@ import React, { useEffect, useState } from "react";
 import Spline from "@splinetool/react-spline";
 import Shaids_logo from "../../assets/images/logo.png";
 
-const ThreeBG = ({ setLoading }) => {
+const ThreeBG = () => {
   const [sceneLoaded, setSceneLoaded] = useState(
     localStorage.getItem("splineLoaded") === "true"
   );
 
   // Handle the loading state change when the scene is loaded
-  const handleLoad = () => {
-    setLoading(false); // Mark loading as false when the scene has finished loading
-    localStorage.setItem("splineLoaded", "true"); // Save in localStorage
-    setSceneLoaded(true); // Update state
-  };
+  // const handleLoad = () => {
+  //   setLoading(false); // Mark loading as false when the scene has finished loading
+  //   localStorage.setItem("splineLoaded", "true"); // Save in localStorage
+  //   setSceneLoaded(true); // Update state
+  // };
 
   return (
     <div className="relative w-full h-screen">
@@ -26,7 +26,7 @@ const ThreeBG = ({ setLoading }) => {
       <Spline
         className="absolute top-0 left-0 w-full h-full"
         scene="https://prod.spline.design/vTwioKQtvdizYR0c/scene.splinecode"
-        onLoad={handleLoad} // Trigger when the scene finishes loading
+        // onLoad={handleLoad} /
       />
 
       {/* Optional: Logo in bottom-right corner */}

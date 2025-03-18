@@ -44,26 +44,22 @@ const App = () => {
     <>
       <SpeedInsights />
       <Analytics />
-      {loading ? (
-        <Loader onComplete={() => setLoading(false)} />
-      ) : (
-        showMain && (
-          <div className="bg-bgGradient min-h-screen">
-            <Navbar className="relative z-50" />
-            <div className="relative z-40 text-white pt-16"></div>
-            <div className="relative z-0">
-              {isMobile ? (
-                <>
-                  <HackHiveBanner />
-                  <MobileView />
-                </>
-              ) : (
-                <ThreeBG setLoading={setLoading} />
-              )}
-            </div>
+      {
+        <div className="bg-bgGradient min-h-screen">
+          <Navbar className="relative z-50" />
+          <div className="relative z-40 text-white pt-16"></div>
+          <div className="relative z-0">
+            {isMobile ? (
+              <>
+                <HackHiveBanner />
+                <MobileView />
+              </>
+            ) : (
+              <ThreeBG />
+            )}
           </div>
-        )
-      )}
+        </div>
+      }
     </>
   );
 };
