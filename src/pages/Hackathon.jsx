@@ -13,7 +13,7 @@ import Clock from "../assets/Clock.json";
 import Exampad from "../assets/Exampad.json";
 import Winner from "../assets/Winner.json";
 import brainheatersImg from "../assets/Sponsers/brainheaters.jpg";
-import brainheatersPDF from "../assets/Sponsers/brainHeatersBrochure.pdf";
+import brainheatersPDF from "../assets/Sponsers/BrainHeatersBrochure.pdf";
 import collegepondImg from "../assets/Sponsers/collegepond.jpg";
 export default function Hackathon() {
   const targetDate = new Date("2025-03-27T00:00:00").getTime(); // Set target date (YYYY-MM-DDTHH:MM:SS)
@@ -188,7 +188,9 @@ export default function Hackathon() {
             <p className="text-[#A576DF] text-2xl font-bold">
               Registration fee:
             </p>
-            <p className="text-white text-xl">₹ 300/- per team</p>
+            <p className="text-white text-xl flex flex-col">
+              ₹ 300/- per team <span className=" text-center text-gray-500 font-Outfit ">(After Selection)</span>
+            </p>
           </div>
         </div>
 
