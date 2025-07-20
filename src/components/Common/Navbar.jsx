@@ -38,9 +38,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:block">
-          <HackHiveButton />
-        </div>
+        
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex space-x-6 text-white cursor-pointer text-lg  items-center w-auto  ">
