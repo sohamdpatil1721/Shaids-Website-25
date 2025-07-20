@@ -8,7 +8,6 @@ import Loader from "./components/Home/Loader";
 import MobileView from "./components/Home/MobileView";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
-import HackHiveBanner from "./components/Home/HackHiveBanner";
 
 const App = () => {
   const [loading, setLoading] = useState(() => {
@@ -51,7 +50,6 @@ const App = () => {
           <div className="relative z-0">
             {isMobile ? (
               <>
-                <HackHiveBanner />
                 <MobileView />
               </>
             ) : (
